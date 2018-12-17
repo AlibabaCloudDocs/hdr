@@ -9,6 +9,8 @@
 3.  [配置网关网络与时间](#)
 4.  [激活网关](#)
 
+**说明：** BCDR 网关通过 9090 和 9095 端口提供服务，客户端程序通过 9080 端口和网关通信。因此您需要合理设置防火墙，保证被保护服务器可以连通网关的 9090 和 9095 端口，并且被保护服务器的 9080 端口允许外部访问。
+
 ## 创建并下载网关镜像 {#download .section}
 
 1.  登录[混合云容灾控制台](https://hdr.console.aliyun.com)。
@@ -18,11 +20,11 @@
 5.  单击**创建**。
 6.  单击**下载容灾网关镜像**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951133649_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689833649_zh-CN.png)
 
-    您也可以在容灾网关列表中，单击下载容灾网关镜像图标![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951233648_zh-CN.png)，如下图所示：
+    您也可以在容灾网关列表中，单击下载容灾网关镜像图标![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689833648_zh-CN.png)，如下图所示：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951333647_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689833647_zh-CN.jpg)
 
 
 ## 部署网关镜像 {#mirror .section}
@@ -35,39 +37,39 @@ OVA 格式的网关镜像下载完成后，您就可以在 VMware vSphere 平台
 
 OVA 仅支持通过 vCenter 的网页客户端（Web Client）来部署，通过 vCenter 的 C\# 客户端或者 Esxi UI 部署都会使网关无法工作。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951333720_zh-CN.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689833720_zh-CN.jpg)
 
 部署网关镜像操作步骤如下：
 
 1.  用管理员身份登录 vSphere 网页客户端后，vSphere 集群上单击右键选择**部署OVF模板…**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951333721_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689833721_zh-CN.png)
 
 2.  按照 OVF 部署向导，在**选择模板**页面，单击**浏览**选择下载好的网关镜像 OVA 文件。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951333722_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689833722_zh-CN.jpg)
 
 3.  在**选择名称和位置**页面，输入**名称**，并选择镜像部署位置，通常只需要选择到集群级别，或者选择文件夹。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951333723_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689833723_zh-CN.jpg)
 
 4.  在**选择资源**页面，选择 BCDR 网关部署的目标资源池。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951333724_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689933724_zh-CN.png)
 
 5.  在**查看详细信息**页面，查看 BCDR 网关部署详细信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951333725_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689933725_zh-CN.jpg)
 
 6.  在**选择存储**页面，选择部署网关的数据存储。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951333726_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689933726_zh-CN.png)
 
     **说明：** 数据存储建议选择有 RAID 配置的共享存储，以确保网关的稳定性和高可用性。
 
 7.  在**自定义模板**页面，配置网关网络信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951333727_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689933727_zh-CN.jpg)
 
     **说明：** 网关子网掩码要使用 CIDR 格式，比如 255.255.255.0 的子网掩码，您应当输入24。
 
@@ -75,11 +77,11 @@ OVA 仅支持通过 vCenter 的网页客户端（Web Client）来部署，通过
 
 8.  确认网关部署信息，单击**完成**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951433734_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689933734_zh-CN.png)
 
 9.  待部署完成后，您可以在 vSphere 的虚机列表中看到已部署完成的虚拟机。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951433737_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689933737_zh-CN.jpg)
 
 10. （可选，建议配置）增强虚机高可用性
 
@@ -91,19 +93,19 @@ OVA 仅支持通过 vCenter 的网页客户端（Web Client）来部署，通过
 
     1.  在 BCDR 网关所在集群的**配置**页面，单击**虚拟机替代项**，然后单击**添加**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951433739_zh-CN.jpg)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689933739_zh-CN.jpg)
 
-    2.  在添加虚拟机替代项页面，单击图标![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951433740_zh-CN.jpg)选择虚拟机。
+    2.  在添加虚拟机替代项页面，单击图标![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689933740_zh-CN.jpg)选择虚拟机。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951433745_zh-CN.jpg)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689933745_zh-CN.jpg)
 
     3.  在选择虚拟机的**筛选**页面，勾选本示例中的虚拟机**Aliyun-BCDR-Server-1.0.0**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951433747_zh-CN.jpg)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501689933747_zh-CN.jpg)
 
     4.  **虚拟机重新启动优先级**一栏，选择**最高**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951433748_zh-CN.jpg)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501690033748_zh-CN.jpg)
 
     完成以上步骤后，一旦 BCDR 网关虚机出现宕机，vSphere 将会尽快将网关在其他 Esxi 服务器上重启，让容灾复制继续进行。
 
@@ -131,15 +133,15 @@ OVA 仅支持通过 vCenter 的网页客户端（Web Client）来部署，通过
 
 网关网络与时间配置完成后，您可以按照如下步骤激活网关：
 
-1.  在容灾网关列表中，单击操作类下的生成激活码图标![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951433796_zh-CN.jpg)。
+1.  在容灾网关列表中，单击操作类下的生成激活码图标![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501690033796_zh-CN.jpg)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951433797_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501690033797_zh-CN.jpg)
 
     **说明：** 激活码的有效时间为 15 分钟。
 
 2.  登录关键业务型容灾网关注册页面，地址格式为：http://网关IP:8080。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154408951433799_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/154501690033799_zh-CN.png)
 
     各参数配置如下：
 
