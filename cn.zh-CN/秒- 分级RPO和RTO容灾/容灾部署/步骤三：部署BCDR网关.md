@@ -9,7 +9,13 @@
 3.  [配置网关网络与时间](#)
 4.  [激活网关](#)
 
-**说明：** BCDR 网关通过 9090 和 9095 端口提供服务，客户端程序通过 9080 端口和网关通信。因此您需要合理设置防火墙，保证被保护服务器可以连通网关的 9090 和 9095 端口，并且被保护服务器的 9080 端口允许外部访问。
+**说明：** 
+
+-   BCDR 网关需要打开公网出方向的 1883 和 443 端口，用于和云上控制台通信以及数据传输。
+-   BCDR 网关通过 9090 和 9095 端口向被保护服务器提供服务，8080 端口用于通过浏览器访问来激活网关。
+-   客户端程序通过 9080 端口接受 BCDR 网关的指令。
+
+因此您需要合理设置防火墙，保证被保护服务器可以连通网关的 9090 和 9095 端口，并且被保护服务器的 9080 端口允许 BCDR 网关访问。
 
 ## 创建并下载网关镜像 {#download .section}
 
@@ -18,16 +24,16 @@
 3.  单击右上角的**创建网关**。
 4.  在创建主站容灾网关页面，填写**名称**，部署环境选择**灾备一体机**、**VMware**或**Hyper-V**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982739288_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553239288_zh-CN.jpg)
 
 5.  单击**创建**。
 6.  在创建主站容灾网关页面，单击**下载容灾网关镜像**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982733649_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553233649_zh-CN.png)
 
-    您也可以在容灾网关列表中，单击下载容灾网关镜像图标![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982733648_zh-CN.png)，如下图所示：
+    您也可以在容灾网关列表中，单击下载容灾网关镜像图标![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553233648_zh-CN.png)，如下图所示：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982733647_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553233647_zh-CN.jpg)
 
 
 ## 部署网关镜像 {#mirror .section}
@@ -42,39 +48,39 @@
 
     -   强烈建议将 BCDR 网关部署在已配置了高可用（HA）的 vSphere 集群上，确保 BCDR 网关的高可用性。
     -   OVA 仅支持通过 vCenter 的网页客户端（Web Client）来部署，通过 vCenter 的 C\# 客户端或者 Esxi UI 部署都会使网关无法工作。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982733720_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553333720_zh-CN.jpg)
 
     在 VMware vSphere 平台上部署 BCDR 网关操作步骤如下：
 
     1.  用管理员身份登录 vSphere 网页客户端后，vSphere 集群上单击右键选择**部署OVF模板…**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982733721_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553333721_zh-CN.png)
 
     2.  按照 OVF 部署向导，在**选择模板**页面，单击**浏览**选择下载好的网关镜像 OVA 文件。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982733722_zh-CN.jpg)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553333722_zh-CN.jpg)
 
     3.  在**选择名称和位置**页面，输入**名称**，并选择镜像部署位置，通常只需要选择到集群级别，或者选择文件夹。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982733723_zh-CN.jpg)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553433723_zh-CN.jpg)
 
     4.  在**选择资源**页面，选择 BCDR 网关部署的目标资源池。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982733724_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553433724_zh-CN.png)
 
     5.  在**查看详细信息**页面，查看 BCDR 网关部署详细信息。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982733725_zh-CN.jpg)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553433725_zh-CN.jpg)
 
     6.  在**选择存储**页面，选择部署网关的数据存储。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982733726_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553533726_zh-CN.png)
 
         **说明：** 数据存储建议选择有 RAID 配置的共享存储，以确保网关的稳定性和高可用性。
 
     7.  在**自定义模板**页面，配置网关网络信息。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982733727_zh-CN.jpg)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553533727_zh-CN.jpg)
 
         **说明：** 网关子网掩码要使用 CIDR 格式，比如 255.255.255.0 的子网掩码，您应当输入24。
 
@@ -82,11 +88,11 @@
 
     8.  确认网关部署信息，单击**完成**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982833734_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553533734_zh-CN.png)
 
     9.  待部署完成后，您可以在 vSphere 的虚机列表中看到已部署完成的虚拟机。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982833737_zh-CN.jpg)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553533737_zh-CN.jpg)
 
     10. （可选，建议配置）增强虚机高可用性
 
@@ -98,19 +104,19 @@
 
         1.  在 BCDR 网关所在集群的**配置**页面，单击**虚拟机替代项**，然后单击**添加**。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982833739_zh-CN.jpg)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553633739_zh-CN.jpg)
 
-        2.  在添加虚拟机替代项页面，单击图标![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982833740_zh-CN.jpg)选择虚拟机。
+        2.  在添加虚拟机替代项页面，单击图标![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553633740_zh-CN.jpg)选择虚拟机。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982833745_zh-CN.jpg)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553633745_zh-CN.jpg)
 
         3.  在选择虚拟机的**筛选**页面，勾选本示例中的虚拟机**Aliyun-BCDR-Server-1.0.0**。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982833747_zh-CN.jpg)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553633747_zh-CN.jpg)
 
         4.  **虚拟机重新启动优先级**一栏，选择**最高**。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982833748_zh-CN.jpg)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553733748_zh-CN.jpg)
 
         完成以上步骤后，一旦 BCDR 网关虚机出现宕机，vSphere 将会尽快将网关在其他 Esxi 服务器上重启，让容灾复制继续进行。
 
@@ -122,51 +128,51 @@
 
     1.  解压上述步骤中[创建的 BCDR 网关镜像](#)。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982840759_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553740759_zh-CN.png)
 
     2.  打开 Hyper-V 管理器，右键选择**导入虚拟机**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982840760_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553740760_zh-CN.png)
 
     3.  在定位文件夹页签，选择第 1 步已解压的文件夹。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982840768_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553740768_zh-CN.png)
 
     4.  在选择导入类型页面，勾选**还原虚拟机（使用现有的唯一 ID）**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982840770_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553740770_zh-CN.png)
 
     5.  在选择目标页面，选择使用默认文件夹或创建新的文件夹。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982840783_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553840783_zh-CN.png)
 
     6.  在选择存储文件夹页面，选择虚拟磁盘存放路径。
 
         **说明：** 请根据实际情况选择剩余空间容量较大的分区。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982940786_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553840786_zh-CN.png)
 
     7.  在摘要页面，待导入向导完成后，单击**完成**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982940787_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553840787_zh-CN.png)
 
     8.  右击虚拟机选择**设置**，单击**网络适配器**选择虚拟交换机。
 
         **说明：** BCDR 网关默认配置的虚拟交换机导入完成后会失效，请新建一个虚拟交换机或者使用可用的虚拟交换机。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982940790_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553840790_zh-CN.png)
 
     9.  指定网络适配器后单击**确定**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982940792_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553840792_zh-CN.png)
 
     10. 单击**虚拟交换机管理器**配置虚拟交换机。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982940794_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553940794_zh-CN.png)
 
     11. 选择虚拟机配置时新建的虚拟交换机，选择需要共享网络的物理网卡，并勾选**允许管理操作系统共享此网络适配器**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982940795_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553940795_zh-CN.png)
 
 
 ## 配置网关网络与时间 {#NTP .section}
@@ -192,15 +198,15 @@
 
 网关网络与时间配置完成后，您可以按照如下步骤激活网关：
 
-1.  在容灾网关列表中，单击操作类下的生成激活码图标![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982933796_zh-CN.jpg)。
+1.  在容灾网关列表中，单击操作类下的生成激活码图标![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553933796_zh-CN.jpg)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982933797_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553933797_zh-CN.jpg)
 
     **说明：** 激活码的有效时间为 15 分钟。
 
 2.  登录关键业务型容灾网关注册页面，地址格式为：http://网关IP:8080。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/155261982933799_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156478553933799_zh-CN.png)
 
     各参数配置如下：
 
