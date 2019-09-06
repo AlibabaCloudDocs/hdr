@@ -1,6 +1,6 @@
 # 步骤三：部署CDR网关 {#concept_92482_zh .concept}
 
-当容灾站点创建完成后，您需要在数据中心内部署一台连续复制制型容灾（CDR） 网关。CDR 网关用来聚合所有来自被容灾保护的服务器上的数据，并将其压缩加密后安全高效地上传到阿里云上。
+当容灾站点创建完成后，您需要在数据中心内部署一台连续复制型容灾（CDR） 网关。CDR 网关用来聚合所有来自被容灾保护的服务器上的数据，并将其压缩加密后安全高效地上传到阿里云上。
 
 部署 CDR 网关，包含以下四个步骤：
 
@@ -21,19 +21,19 @@
 
 1.  登录[混合云容灾控制台](https://hdr.console.aliyun.com)。
 2.  单击已创建的连续复制型容灾站点对。
-3.  单击容灾网关下的![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775193854432_zh-CN.jpg)创建网关。
+3.  单击容灾网关下的![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775478954432_zh-CN.jpg)创建网关。
 4.  在创建主站容灾网关页面，填写**名称**，部署环境选择**Apsara DR100**、**Apsara DR200**、**VMware**或**Hyper-V**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775193854433_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775478954433_zh-CN.jpg)
 
 5.  单击**创建**。
 6.  在创建主站容灾网关页面，单击**下载容灾网关镜像**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775193854435_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479054435_zh-CN.jpg)
 
-    您也可以单击已创建容灾网关右侧对应的**![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775193854437_zh-CN.jpg)** \> **下载容灾网关镜像**。
+    您也可以单击已创建容灾网关右侧对应的**![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479054437_zh-CN.jpg)** \> **下载容灾网关镜像**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775193854438_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479054438_zh-CN.jpg)
 
     。
 
@@ -50,39 +50,39 @@
 
     -   强烈建议将 CDR 网关部署在已配置了高可用（HA）的 vSphere 集群上，确保 CDR 网关的高可用性。
     -   OVA 仅支持通过 vCenter 的网页客户端（Web Client）来部署，通过 vCenter 的 C\# 客户端或者 Esxi UI 部署都会使网关无法工作。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775193933720_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479033720_zh-CN.jpg)
 
     在 VMware vSphere 平台上部署 CDR 网关操作步骤如下：
 
     1.  用管理员身份登录 vSphere 网页客户端后，vSphere 集群上单击右键选择**部署OVF模板…**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775193933721_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479033721_zh-CN.png)
 
     2.  按照 OVF 部署向导，在**选择模板**页面，单击**浏览**选择下载好的网关镜像 OVA 文件。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775193933722_zh-CN.jpg)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479033722_zh-CN.jpg)
 
     3.  在**选择名称和位置**页面，输入**名称**，并选择镜像部署位置，通常只需要选择到集群级别，或者选择文件夹。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775193933723_zh-CN.jpg)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479133723_zh-CN.jpg)
 
     4.  在**选择资源**页面，选择 CDR 网关部署的目标资源池。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775193933724_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479133724_zh-CN.png)
 
     5.  在**查看详细信息**页面，查看 CDR 网关部署详细信息。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775193933725_zh-CN.jpg)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479133725_zh-CN.jpg)
 
     6.  在**选择存储**页面，选择部署网关的数据存储。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194033726_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479133726_zh-CN.png)
 
         **说明：** 数据存储建议选择有 RAID 配置的共享存储，以确保网关的稳定性和高可用性。
 
     7.  在**自定义模板**页面，配置网关网络信息。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194033727_zh-CN.jpg)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479133727_zh-CN.jpg)
 
         **说明：** 网关子网掩码要使用 CIDR 格式，比如 255.255.255.0 的子网掩码，您应当输入24。
 
@@ -90,11 +90,11 @@
 
     8.  确认网关部署信息，单击**完成**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194033734_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479133734_zh-CN.png)
 
     9.  待部署完成后，您可以在 vSphere 的虚机列表中看到已部署完成的虚拟机。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194033737_zh-CN.jpg)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479133737_zh-CN.jpg)
 
     10. （可选，建议配置）增强虚机高可用性
 
@@ -106,19 +106,19 @@
 
         1.  在 CDR 网关所在集群的**配置**页面，单击**虚拟机替代项**，然后单击**添加**。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194033739_zh-CN.jpg)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479233739_zh-CN.jpg)
 
-        2.  在添加虚拟机替代项页面，单击图标![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194033740_zh-CN.jpg)选择虚拟机。
+        2.  在添加虚拟机替代项页面，单击图标![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479233740_zh-CN.jpg)选择虚拟机。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194033745_zh-CN.jpg)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479233745_zh-CN.jpg)
 
         3.  在选择虚拟机的**筛选**页面，勾选本示例中的虚拟机**Aliyun-BCDR-Server-1.0.0**。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194133747_zh-CN.jpg)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479233747_zh-CN.jpg)
 
         4.  **虚拟机重新启动优先级**一栏，选择**最高**。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194133748_zh-CN.jpg)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479233748_zh-CN.jpg)
 
         完成以上步骤后，一旦 CDR 网关虚机出现宕机，vSphere 将会尽快将网关在其他 Esxi 服务器上重启，让容灾复制继续进行。
 
@@ -130,51 +130,51 @@
 
     1.  解压上述步骤中[创建的 CDR 网关镜像](#)。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194140759_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479240759_zh-CN.png)
 
     2.  打开 Hyper-V 管理器，右键选择**导入虚拟机**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194140760_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479240760_zh-CN.png)
 
     3.  在定位文件夹页签，选择第 1 步已解压的文件夹。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194140768_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479240768_zh-CN.png)
 
     4.  在选择导入类型页面，勾选**还原虚拟机（使用现有的唯一 ID）**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194140770_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479240770_zh-CN.png)
 
     5.  在选择目标页面，选择使用默认文件夹或创建新的文件夹。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194140783_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479340783_zh-CN.png)
 
     6.  在选择存储文件夹页面，选择虚拟磁盘存放路径。
 
         **说明：** 请根据实际情况选择剩余空间容量较大的分区。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194140786_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479340786_zh-CN.png)
 
     7.  在摘要页面，待导入向导完成后，单击**完成**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194140787_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479340787_zh-CN.png)
 
     8.  右击虚拟机选择**设置**，单击**网络适配器**选择虚拟交换机。
 
         **说明：** CDR 网关默认配置的虚拟交换机导入完成后会失效，请新建一个虚拟交换机或者使用可用的虚拟交换机。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194140790_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479340790_zh-CN.png)
 
     9.  指定网络适配器后单击**确定**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194140792_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479340792_zh-CN.png)
 
     10. 单击**虚拟交换机管理器**配置虚拟交换机。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194240794_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479340794_zh-CN.png)
 
     11. 选择虚拟机配置时新建的虚拟交换机，选择需要共享网络的物理网卡，并勾选**允许管理操作系统共享此网络适配器**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194240795_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479340795_zh-CN.png)
 
 
 ## 配置网关网络与时间 {#NTP .section}
@@ -202,11 +202,11 @@
 
 1.  在容灾中心的站点对信息页签下，单击激活图标
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194254514_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479454514_zh-CN.jpg)
 
     。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194254513_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479454513_zh-CN.jpg)
 
     **说明：** 激活码的有效时间为 15 分钟。
 
@@ -225,13 +225,13 @@ CDR 网关激活完成后，您需要在关键业务服务器上安装阿里云�
 
 除下载容灾网关镜像外，您还可以对容灾网关设置限速、重置密码、删除网关及收集支持信息。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194254519_zh-CN.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479454519_zh-CN.jpg)
 
 -   **设置限速**：如果您想要设置网关限速，请勾选**启用限速**，单击**添加**，并设置启用限速的**起始时间**、**结束时间**及**网络速度**，然后单击**确认**。
 
     如果想要取消网关限速，请单击操作栏下的删除图标。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775194254526_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64154/156775479454526_zh-CN.jpg)
 
 -   **重置密码**：您可以为容灾网关重置密码。
 -   **删除网关**：如果您不再需要保留此网关，可以选择删除网关。
